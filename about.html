@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Surveillance World</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--primary:#3c8e4e;
+--secondary:#0d1f10;
+--dark:#081208;
+--light:#f0faf2;
+--accent:#5cb870;
+--gold:#d4a017;
+--border:rgba(60,142,78,0.2);
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--dark);
+color:var(--light);
+line-height:1.6;
+overflow-x:hidden;
+}
+
+.navbar{
+position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(8,18,8,0.97);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 5%;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+}
+
+.logo{
+width: 42px;
+height: 42px;
+object-fit: contain;
+filter: drop-shadow(0 2px 8px rgba(60,142,78,0.45));
+}
+
+.logo h2{
+font-size: 1.05rem;
+font-weight: 700;
+color: #3c8e4e;
+font-family: Cambria, Georgia, serif;
+letter-spacing: 0.5px;
+line-height: 1.1;
+}
+
+
+.nav-brand{
+display:flex;
+align-items:center;
+gap:.7rem;
+text-decoration:none;
+flex-shrink:0;
+}
+
+.nav-logo{
+width:42px;
+height:42px;
+object-fit:contain;
+filter:drop-shadow(0 2px 8px rgba(60,142,78,.45));
+}
+
+.nav-logo-fallback{
+width:42px;
+height:42px;
+background:linear-gradient(135deg,#2d6e3c,#5cb870);
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+}
+
+.nav-company{display:flex;flex-direction:column;}
+
+.nav-company-name{
+font-size:1.05rem;
+font-weight:700;
+color:#3c8e4e;
+font-family:Cambria, Georgia, serif;
+letter-spacing:1.5px;
+line-height:1.1;
+}
+
+.nav-right{
+display:flex;
+align-items:center;
+}
+
+.nav-back{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:.5rem 1.1rem;
+background:transparent;
+border:1.5px solid var(--border);
+border-radius:50px;
+color:#7aab85;
+text-decoration:none;
+font-size:.82rem;
+font-weight:600;
+}
+
+.nav-back:hover{
+border-color:#5cb870;
+color:#a3e6b0;
+background:rgba(60,142,78,.08);
+}
+
+.hero{
+padding:90px 5% 55px;
+text-align:center;
+background:
+linear-gradient(rgba(8,18,8,.85),rgba(8,18,8,.92)),
+radial-gradient(circle at top right, rgba(92,184,112,.18), transparent 40%);
+}
+
+.hero h1{
+font-size:clamp(2.2rem,5vw,3.2rem);
+margin-bottom:14px;
+/* background:linear-gradient(135deg,#5cb870,#c8f5ce); */
+--webkit-background-clip:text;
+--webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:760px;
+margin:auto;
+color:#d1d5db;
+font-size:1rem;
+line-height:1.8;
+}
+
+.container{
+width:min(1200px,92%);
+margin:auto;
+}
+
+.section{
+padding:48px 0;
+}
+
+.section-title{
+text-align:center;
+font-size:clamp(1.6rem,3vw,2.2rem);
+font-weight:700;
+letter-spacing:.5px;
+margin-bottom:2.5rem;
+color:#5cb870;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+background:rgba(13,31,16,.9);
+border:1px solid rgba(92,184,112,.15);
+border-radius:16px;
+padding:24px;
+transition:.3s ease;
+}
+
+.card:hover{
+transform:translateY(-4px);
+border-color:rgba(92,184,112,.35);
+}
+
+.card i{
+font-size:1.9rem;
+margin-bottom:14px;
+}
+
+.card h3{
+margin-bottom:14px;
+}
+
+.card p, .card li{
+color:#cbd5e1;
+}
+
+.highlight-box{
+background:linear-gradient(135deg,#102614,#18371d);
+border-left:4px solid #5cb870;
+padding:24px;
+border-radius:14px;
+}
+
+.list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:16px;
+}
+
+.list-item{
+display:flex;
+gap:12px;
+background:rgba(13,31,16,.85);
+padding:16px 18px;
+border-radius:14px;
+align-items:flex-start;
+}
+
+.list-item i{
+color:#d4a017;
+margin-top:4px;
+}
+
+.footer{
+padding:24px;
+text-align:center;
+border-top:1px solid rgba(92,184,112,.2);
+color:#94a3b8;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:clamp(1.6rem,3vw,2.2rem);
+font-weight:700;
+letter-spacing:.5px;
+}
+.section-title{
+font-size:1.8rem;
+}
+}
+
+@media(max-width:992px){
+.section{padding:42px 0;}
+.card{padding:22px;}
+}
+
+@media(max-width:768px){
+.navbar{padding:14px 5%;}
+.logo h2{font-size:1rem;}
+.hero{padding:80px 5% 45px;}
+.hero p{font-size:.95rem;}
+.section{padding:38px 0;}
+.grid{gap:16px;}
+.card{padding:20px;}
+.card h3{font-size:1.05rem;}
+.highlight-box{padding:20px;}
+.list-item{padding:14px 16px;}
+}
+
+@media(max-width:480px){
+.hero h1{font-size:2rem;}
+.section-title{font-size:1.5rem;}
+.card i{font-size:1.7rem;}
+}
+
+</style>
+</head>
+
+<body>
+
+
+<nav class="navbar">
+    <a href="./index.html" class="nav-brand">
+        <img src="./asset/sw_logo/sw_logo.webp" alt="Surveillance World" class="nav-logo"
+             onerror="this.style.display='none';document.getElementById('navFallback').style.display='flex'">
+        <div class="nav-logo-fallback" id="navFallback" style="display:none">
+            <i class="fas fa-shield-halved"></i>
+        </div>
+        <div class="nav-company">
+            <span class="nav-company-name">SURVEILLANCE WORLD</span>
+        </div>
+    </a>
+
+    <div class="nav-right">
+        <a href="./index.html" class="nav-back">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+</nav>
+
+
+<section class="hero">
+<h1>ABOUT SURVEILLANCE WORLD</h1>
+<p>
+Trusted Electronic Security & Technology Solutions Provider Across Odisha Since 2020
+</p>
+</section>
+
+<div class="container">
+
+<section class="section">
+<h2 class="section-title">Company Overview</h2>
+
+<div class="highlight-box">
+<p>
+Surveillance World was founded in 2020 with the vision of providing reliable, innovative, and high-quality electronic security solutions for residential, commercial, industrial, and institutional clients across Odisha.
+<br><br>
+Over the years, we have grown into a trusted technology and security solutions provider with the support of our experienced engineers and dedicated technical team having 10+ years of industry experience in electronic security and networking systems.
+<br><br>
+Today, Surveillance World proudly serves hundreds of satisfied customers across Odisha by delivering professional installation, genuine products, and dependable after-sales support.
+</p>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Our Vision & Mission</h2>
+
+<div class="grid">
+
+<div class="card">
+<i class="fas fa-eye" style="color:#4da3ff;"></i>
+<h3>Our Vision</h3>
+<p>
+Our aim is to become a leading provider of electronic security solutions and services for both residential and commercial clients by delivering advanced technology, trusted support, and customer-focused services.
+</p>
+</div>
+
+<div class="card">
+<i class="fas fa-bullseye" style="color:#ff9f43;"></i>
+<h3>Our Mission</h3>
+<p>
+We help individuals, businesses, and organizations secure their lives, assets, and workplaces with innovative electronic security products and reliable technology solutions backed by professional service and technical expertise.
+</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Our Core Values</h2>
+
+<div class="grid">
+
+<div class="card">
+<i class="fas fa-medal" style="color:#d4a017;"></i>
+<h3>Quality</h3>
+<p>Quality is the foundation of everything we do. We never compromise on the quality of our products, workmanship, and customer support services.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-star" style="color:#4da3ff;"></i>
+<h3>Excellence</h3>
+<p>We deliver our products and services with professionalism, urgency, and flawless execution to ensure complete customer satisfaction.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-lightbulb" style="color:#8b5cf6;"></i>
+<h3>Innovation</h3>
+<p>We regularly invest in new technologies, advanced products, and intelligent security systems.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-handshake" style="color:#06b6d4;"></i>
+<h3>Customer Service</h3>
+<p>We listen carefully to our customers and respond to their needs with dedication and professionalism.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Technology & Security Solutions</h2>
+
+<div class="grid">
+
+<div class="card">
+<i class="fas fa-building" style="color:#4da3ff;"></i>
+<h3>Technology Solutions Provider</h3>
+<p>
+We provide complete electronic security integration and technology solutions for residential properties, commercial buildings, offices, hotels, educational institutions, industries, apartments, and retail stores.
+</p>
+</div>
+
+<div class="card">
+<i class="fas fa-headset" style="color:#ff9f43;"></i>
+<h3>After Sales Support</h3>
+<p>
+We provide dedicated after-sales support and technical services including installation, maintenance, troubleshooting, and AMC services.
+</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Why Choose Surveillance World?</h2>
+
+<div class="list">
+
+<div class="list-item"><i class="fas fa-check-circle"></i><span>Latest Technology Solutions</span></div>
+<div class="list-item"><i class="fas fa-check-circle"></i><span>Genuine & Trusted Products</span></div>
+<div class="list-item"><i class="fas fa-check-circle"></i><span>Professional Installation Team</span></div>
+<div class="list-item"><i class="fas fa-check-circle"></i><span>Affordable & Customized Solutions</span></div>
+<div class="list-item"><i class="fas fa-check-circle"></i><span>Strong Technical Support</span></div>
+<div class="list-item"><i class="fas fa-check-circle"></i><span>Timely Project Delivery</span></div>
+<div class="list-item"><i class="fas fa-check-circle"></i><span>Reliable AMC & Maintenance Services</span></div>
+<div class="list-item"><i class="fas fa-check-circle"></i><span>Service Across Odisha</span></div>
+
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Solutions & Services Portfolio</h2>
+
+<div class="grid">
+
+<div class="card"><i class="fas fa-video" style="color:#4da3ff;"></i><h3>CCTV Surveillance Systems</h3></div>
+
+<div class="card"><i class="fas fa-camera" style="color:#06b6d4;"></i><h3>IP Camera Systems</h3></div>
+
+<div class="card"><i class="fas fa-hard-drive" style="color:#8b5cf6;"></i><h3>DVR / NVR Solutions</h3></div>
+
+<div class="card"><i class="fas fa-fire-extinguisher" style="color:#ff5c5c;"></i><h3>Fire Alarm Systems</h3></div>
+
+<div class="card"><i class="fas fa-bell" style="color:#ff9f43;"></i><h3>Burglar Alarm Systems</h3></div>
+
+<div class="card"><i class="fas fa-door-open" style="color:#d4a017;"></i><h3>Video Door Phone Systems</h3></div>
+
+<div class="card"><i class="fas fa-road-barrier" style="color:#8b5cf6;"></i><h3>Boom Barrier Systems</h3></div>
+
+<div class="card"><i class="fas fa-microphone" style="color:#06b6d4;"></i><h3>Public Audio Systems</h3></div>
+
+<div class="card"><i class="fas fa-fingerprint" style="color:#4da3ff;"></i><h3>Biometric Attendance Systems</h3></div>
+
+<div class="card"><i class="fas fa-id-card" style="color:#ff9f43;"></i><h3>Access Control Systems</h3></div>
+
+<div class="card"><i class="fas fa-network-wired" style="color:#8b5cf6;"></i><h3>Optical Fiber Networking</h3></div>
+
+<div class="card"><i class="fas fa-wifi" style="color:#06b6d4;"></i><h3>Wireless Networking</h3></div>
+
+<div class="card"><i class="fas fa-phone-volume" style="color:#f59e0b;"></i><h3>EPABX Installation & Configuration</h3></div>
+
+<div class="card"><i class="fas fa-tv" style="color:#4da3ff;"></i><h3>Interactive Panels</h3></div>
+
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Areas We Serve</h2>
+
+<div class="highlight-box">
+<p>
+Bhubaneswar, Cuttack, Balasore, Bhadrak, Sundargarh, Baripada, Rayagada and many other locations throughout Odisha.
+</p>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Company Information</h2>
+
+<div class="highlight-box">
+<p><strong>Company Name:</strong> SURVEILLANCE WORLD</p>
+<p><strong>Established:</strong> 2020</p>
+<p><strong>GSTIN:</strong> 21BEBPG4824G1Z3</p>
+<p><strong>UDYAM Registration No.:</strong> UDYAM-OD-19-0146532</p>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Our Commitment</h2>
+
+<div class="highlight-box">
+<p>
+At Surveillance World, our goal is to provide smarter, safer, and more efficient technology solutions that help protect homes, businesses, and organizations with modern electronic security systems and professional service support.
+</p>
+</div>
+</section>
+
+</div>
+
+<footer class="footer">
+&copy;2020-2026 Surveillance World. All rights reserved.
+</footer>
+
+</body>
+</html>
